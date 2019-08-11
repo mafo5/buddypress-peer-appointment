@@ -11,14 +11,14 @@
  * In Javascript we can post an action with some parameters via jQuery:
  * 
  * 			jQuery.post( ajaxurl, {
- *				action: 'my_example_action',
+ *				action: 'my_peer_session_action',
  *				'cookie': encodeURIComponent(document.cookie),
  *				'parameter_1': 'some_value'
  *			}, function(response) { ... } );
  *
- * Notice the action 'my_example_action', this is the part that will hook into the wp_ajax action.
+ * Notice the action 'my_peer_session_action', this is the part that will hook into the wp_ajax action.
  * 
- * You will need to add an add_action( 'wp_ajax_my_example_action', 'the_function_to_run' ); so that
+ * You will need to add an add_action( 'wp_ajax_my_peer_session_action', 'the_function_to_run' ); so that
  * your function will run when this action is fired.
  * 
  * You'll be able to access any of the parameters passed using the $_POST variable.
@@ -31,7 +31,7 @@
  * Try and avoid returning HTML layout in your ajax functions.
  */
 
-function example_friends_ajax_addremove_friend() {
+function peer_session_friends_ajax_addremove_friend() {
 	global $bp;
 
 	if ( 'is_friend' == BP_Friends_Friendship::check_is_friend( $bp->loggedin_user->id, $_POST['fid'] ) ) {

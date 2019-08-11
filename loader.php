@@ -1,15 +1,15 @@
 <?php
 /*
-Plugin Name: BuddyPress Skeleton Component
-Plugin URI: http://example.org/my/awesome/bp/component
+Plugin Name: BuddyPress Peer Session
+Plugin URI: https://mafo5.github.io/buddypress-peer-session
 Description: This BuddyPress component is the greatest thing since sliced bread.
-Version: 1.6.2
+Version: 1.0.0
 Revision Date: MMMM DD, YYYY
-Requires at least: What WP version, what BuddyPress version? ( Example: WP 3.2.1, BuddyPress 1.5 )
+Requires at least: What WP version, what BuddyPress version? ( Peer Session: WP 3.2.1, BuddyPress 1.5 )
 Tested up to: What WP version, what BuddyPress version?
-License: (Example: GNU General Public License 2.0 (GPL) http://www.gnu.org/licenses/gpl.html)
-Author: Dr. Jan Itor
-Author URI: http://example.org/some/cool/developer
+License: (Peer Session: GNU General Public License 2.0 (GPL) http://www.gnu.org/licenses/gpl.html)
+Author: MaFo
+Author URI: https://mafo5.github.io
 Network: true
 */
 
@@ -39,14 +39,14 @@ Network: true
  *************************************************************************************************************/
 
 // Define a constant that can be checked to see if the component is installed or not.
-define( 'BP_EXAMPLE_IS_INSTALLED', 1 );
+define( 'BP_PEER_SESSION_IS_INSTALLED', 1 );
 
 // Define a constant that will hold the current version number of the component
 // This can be useful if you need to run update scripts or do compatibility checks in the future
-define( 'BP_EXAMPLE_VERSION', '1.6.2' );
+define( 'BP_PEER_SESSION_VERSION', '1.6.2' );
 
 // Define a constant that we can use to construct file paths throughout the component
-define( 'BP_EXAMPLE_PLUGIN_DIR', dirname( __FILE__ ) );
+define( 'BP_PEER_SESSION_PLUGIN_DIR', dirname( __FILE__ ) );
 
 /* Define a constant that will hold the database version number that can be used for upgrading the DB
  *
@@ -55,28 +55,28 @@ define( 'BP_EXAMPLE_PLUGIN_DIR', dirname( __FILE__ ) );
  *
  * Also, if you have errors when testing the component for the first time, make sure that you check to
  * see if the table(s) got created. If not, you'll most likely need to increment this constant as
- * BP_EXAMPLE_DB_VERSION was written to the wp_usermeta table and the install function will not be
+ * BP_PEER_SESSION_DB_VERSION was written to the wp_usermeta table and the install function will not be
  * triggered again unless you increment the version to a number higher than stored in the meta data.
  */
-define ( 'BP_EXAMPLE_DB_VERSION', '1' );
+define ( 'BP_PEER_SESSION_DB_VERSION', '1' );
 
 /* Only load the component if BuddyPress is loaded and initialized. */
-function bp_example_init() {
+function bp_peer_session_init() {
 	// Because our loader file uses BP_Component, it requires BP 1.5 or greater.
 	if ( version_compare( BP_VERSION, '1.9', '>' ) )
-		require( BP_EXAMPLE_PLUGIN_DIR . '/includes/bp-example-loader.php' );
+		require( BP_PEER_SESSION_PLUGIN_DIR . '/includes/bp-peer-session-loader.php' );
 }
-add_action( 'bp_include', 'bp_example_init' );
+add_action( 'bp_include', 'bp_peer_session_init' );
 
 /* Put setup procedures to be run when the plugin is activated in the following function */
-function bp_example_activate() {
+function bp_peer_session_activate() {
 
 }
-register_activation_hook( __FILE__, 'bp_example_activate' );
+register_activation_hook( __FILE__, 'bp_peer_session_activate' );
 
 /* On deacativation, clean up anything your component has added. */
-function bp_example_deactivate() {
+function bp_peer_session_deactivate() {
 	/* You might want to delete any options or tables that your component created. */
 }
-register_deactivation_hook( __FILE__, 'bp_example_deactivate' );
+register_deactivation_hook( __FILE__, 'bp_peer_session_deactivate' );
 ?>

@@ -10,8 +10,8 @@ if ( !defined( 'ABSPATH' ) ) exit;
  * you can use this code to allow them to add new definitions to the wp-config.php file and set the value there.
  *
  *
- *	if ( !defined( 'BP_EXAMPLE_CONSTANT' ) )
- *		define ( 'BP_EXAMPLE_CONSTANT', 'some value' // or some value without quotes if integer );
+ *	if ( !defined( 'BP_PEER_SESSION_CONSTANT' ) )
+ *		define ( 'BP_PEER_SESSION_CONSTANT', 'some value' // or some value without quotes if integer );
  */
 
 /**
@@ -19,15 +19,15 @@ if ( !defined( 'ABSPATH' ) ) exit;
  * Make sure you wrap any rendered text in __() or _e() and it will then be translatable.
  *
  * You must also provide a text domain, so translation files know which bits of text to translate.
- * Throughout this example the text domain used is 'bp-example', you can use whatever you want.
+ * Throughout this example the text domain used is 'bp-peer-session', you can use whatever you want.
  * Put the text domain as the second parameter:
  *
- * __( 'This text will be translatable', 'bp-example' ); // Returns the first parameter value
- * _e( 'This text will be translatable', 'bp-example' ); // Echos the first parameter value
+ * __( 'This text will be translatable', 'bp-peer-session' ); // Returns the first parameter value
+ * _e( 'This text will be translatable', 'bp-peer-session' ); // Echos the first parameter value
  */
 
-if ( file_exists( BP_EXAMPLE_PLUGIN_DIR . '/languages/' . get_locale() . '.mo' ) )
-	load_textdomain( 'bp-example', BP_EXAMPLE_PLUGIN_DIR . '/languages/' . get_locale() . '.mo' );
+if ( file_exists( BP_PEER_SESSION_PLUGIN_DIR . '/languages/' . get_locale() . '.mo' ) )
+	load_textdomain( 'bp-peer-session', BP_PEER_SESSION_PLUGIN_DIR . '/languages/' . get_locale() . '.mo' );
 
 /**
  * Implementation of BP_Component
@@ -36,10 +36,10 @@ if ( file_exists( BP_EXAMPLE_PLUGIN_DIR . '/languages/' . get_locale() . '.mo' )
  * structure, including global data, navigation elements, and admin bar information. If there's
  * a particular aspect of this class that is not relevant to your plugin, just leave it out.
  *
- * @package BuddyPress_Skeleton_Component
+ * @package BuddyPress_Peer_Session_Component
  * @since 1.6
  */
-class BP_Example_Component extends BP_Component {
+class BP_Peer_Session_Component extends BP_Component {
 
 	/**
 	 * Constructor method
@@ -55,18 +55,18 @@ class BP_Example_Component extends BP_Component {
 	 *               various places through the BuddyPress admin screens to identify it.
 	 *   (3) $path - The path to your plugin directory. Primarily, this is used by
 	 *		 BP_Component::includes(), to include your plugin's files. See loader.php
-	 *		 to see how BP_EXAMPLE_PLUGIN_DIR was defined.
+	 *		 to see how BP_PEER_SESSION_PLUGIN_DIR was defined.
 	 *
-	 * @package BuddyPress_Skeleton_Component
+	 * @package BuddyPress_Peer_Session_Component
 	 * @since 1.6
 	 */
 	function __construct() {
 		global $bp;
 
 		parent::start(
-			'example',
-			__( 'Example', 'bp-example' ),
-			BP_EXAMPLE_PLUGIN_DIR
+			'peer-session',
+			__( 'Peer Session', 'bp-peer-session' ),
+			BP_PEER_SESSION_PLUGIN_DIR
 		);
 
 		/**
@@ -77,7 +77,7 @@ class BP_Example_Component extends BP_Component {
 
 		/**
 		 * Put your component into the active components array, so that
-		 *   bp_is_active( 'example' );
+		 *   bp_is_active( 'peer-session' );
 		 * returns true when appropriate. We have to do this manually, because non-core
 		 * components are not saved as active components in the database.
 		 */
@@ -102,21 +102,21 @@ class BP_Example_Component extends BP_Component {
 	 *           $includes = array( 'notifications.php', 'filters.php' );
 	 *       BP_Component::includes() will try to load these files (assuming a typical WP
 	 *       setup):
-	 *           /wp-content/plugins/bp-example/notifications.php
-	 *           /wp-content/plugins/bp-example/filters.php
+	 *           /wp-content/plugins/bp-peer-session/notifications.php
+	 *           /wp-content/plugins/bp-peer-session/filters.php
 	 *       Our includes function, listed below, uses a variation on this method, by specifying
 	 *       the 'includes' directory in our $includes array.
 	 *   (2) $this->path . '/bp-' . $this->id . '/' . $file - Assuming the same $includes array
 	 *       as above, BP will look for the following files:
-	 *           /wp-content/plugins/bp-example/bp-example/notifications.php
-	 *           /wp-content/plugins/bp-example/bp-example/filters.php
+	 *           /wp-content/plugins/bp-peer-session/bp-peer-session/notifications.php
+	 *           /wp-content/plugins/bp-peer-session/bp-peer-session/filters.php
 	 *   (3) $this->path . '/bp-' . $this->id . '/' . 'bp-' . $this->id . '-' . $file . '.php' -
 	 *       This is the format that BuddyPress core components use to load their files. Given
 	 *       an $includes array like
 	 *           $includes = array( 'notifications', 'filters' );
 	 *       BP looks for files at:
-	 *           /wp-content/plugins/bp-example/bp-example/bp-example-notifications.php
-	 *           /wp-content/plugins/bp-example/bp-example/bp-example-filters.php
+	 *           /wp-content/plugins/bp-peer-session/bp-peer-session/bp-peer-session-notifications.php
+	 *           /wp-content/plugins/bp-peer-session/bp-peer-session/bp-peer-session-filters.php
 	 *
 	 * If you'd prefer not to use any of these naming or organizational schemas, you are not
 	 * required to use parent::includes(); your own includes() method can require the files
@@ -128,7 +128,7 @@ class BP_Example_Component extends BP_Component {
 	 * not necessary for BuddyPress core components, plugins are loaded later, and thus their
 	 * includes() method must be invoked manually.
 	 *
-	 * Our example component includes a fairly large number of files. Your component may not
+	 * Our peer session component includes a fairly large number of files. Your component may not
 	 * need to have versions of all of these files. What follows is a short description of
 	 * what each file does; for more details, open the file itself and see its inline docs.
 	 *   - -actions.php       - Functions hooked to bp_actions, mainly used to catch action
@@ -145,7 +145,7 @@ class BP_Example_Component extends BP_Component {
 	 *   - -template.php	  - Template tags. These are functions that are called from your
 	 *			    templates, or from your screen functions. If your plugin
 	 *			    contains its own version of the WordPress Loop (such as
-	 *			    bp_example_has_items()), those functions should go in this file.
+	 *			    bp_peer_session_has_items()), those functions should go in this file.
 	 *   - -functions.php     - Miscellaneous utility functions required by your component.
 	 *   - -notifications.php - Functions related to email notification, as well as the
 	 *			    BuddyPress notifications that show up in the admin bar.
@@ -156,24 +156,24 @@ class BP_Example_Component extends BP_Component {
 	 *   - -cssjs.php	  - Here is where you set up and enqueue your CSS and JS.
 	 *   - -ajax.php	  - Functions used in the process of AJAX requests.
 	 *
-	 * @package BuddyPress_Skeleton_Component
+	 * @package BuddyPress_Peer_Session_Component
 	 * @since 1.6
 	 */
 	public function includes( $includes = array() ) {
 
 		// Files to include
 		$includes = array(
-			'includes/bp-example-actions.php',
-			'includes/bp-example-screens.php',
-			'includes/bp-example-filters.php',
-			'includes/bp-example-classes.php',
-			'includes/bp-example-activity.php',
-			'includes/bp-example-template.php',
-			'includes/bp-example-functions.php',
-			'includes/bp-example-notifications.php',
-			'includes/bp-example-widgets.php',
-			'includes/bp-example-cssjs.php',
-			'includes/bp-example-ajax.php'
+			'includes/bp-peer-session-actions.php',
+			'includes/bp-peer-session-screens.php',
+			'includes/bp-peer-session-filters.php',
+			'includes/bp-peer-session-classes.php',
+			'includes/bp-peer-session-activity.php',
+			'includes/bp-peer-session-template.php',
+			'includes/bp-peer-session-functions.php',
+			'includes/bp-peer-session-notifications.php',
+			'includes/bp-peer-session-widgets.php',
+			'includes/bp-peer-session-cssjs.php',
+			'includes/bp-peer-session-ajax.php'
 		);
 
 		parent::includes( $includes );
@@ -181,7 +181,24 @@ class BP_Example_Component extends BP_Component {
 		// As an example of how you might do it manually, let's include the functions used
 		// on the WordPress Dashboard conditionally:
 		if ( is_admin() || is_network_admin() ) {
-			include( BP_EXAMPLE_PLUGIN_DIR . '/includes/bp-example-admin.php' );
+			include( BP_PEER_SESSION_PLUGIN_DIR . '/includes/bp-peer-session-admin.php' );
+		}
+	}
+
+	/**
+	 * Late includes method.
+	 *
+	 * Only load up certain code when on specific pages.
+	 *
+	 * @since 3.0.0
+	 */
+	public function late_includes() {
+
+		if ( bp_is_current_component( 'peer-session' ) ) {
+			// Screens - Single permalink.
+			if ( bp_is_current_action( 'p' ) || is_numeric( bp_current_action() ) ) {
+				require BP_PEER_SESSION_PLUGIN_DIR . '/includes/bp-peer-session-permalink.php';
+			}
 		}
 	}
 
@@ -191,23 +208,23 @@ class BP_Example_Component extends BP_Component {
 	 * Use the parent::setup_globals() method to set up the key global data for your plugin:
 	 *   - 'slug'			- This is the string used to create URLs when your component
 	 *				  adds navigation underneath profile URLs. For example,
-	 *				  in the URL http://testbp.com/members/boone/example, the
-	 *				  'example' portion of the URL is formed by the 'slug'.
+	 *				  in the URL http://testbp.com/members/boone/peer-session, the
+	 *				  'peer-session' portion of the URL is formed by the 'slug'.
 	 *				  Site admins can customize this value by defining
-	 *				  BP_EXAMPLE_SLUG in their wp-config.php or bp-custom.php
+	 *				  BP_PEER_SESSION_SLUG in their wp-config.php or bp-custom.php
 	 *				  files.
 	 *   - 'root_slug'		- This is the string used to create URLs when your component
 	 *				  adds navigation to the root of the site. In other words,
 	 *				  you only need to define root_slug if your component is a
 	 *				  "root component". Eg, in:
-	 *				    http://testbp.com/example/test
-	 *				  'example' is a root slug. This should always be defined
+	 *				    http://testbp.com/peer-session/test
+	 *				  'peer-session' is a root slug. This should always be defined
 	 *				  in terms of $bp->pages; see the example below. Site admins
 	 *				  can customize this value by changing the permalink of the
 	 *				  corresponding WP page in the Dashboard. NOTE:
 	 *				  'root_slug' requires that 'has_directory' is true.
 	 *   - 'has_directory'		- Set this to true if your component requires a top-level
-	 *				  directory, such as http://testbp.com/example. When
+	 *				  directory, such as http://testbp.com/peer-session. When
 	 *				  'has_directory' is true, BP will require that site admins
 	 *				  associate a WordPress page with your component. NOTE:
 	 *				  When 'has_directory' is true, you must also define your
@@ -224,7 +241,7 @@ class BP_Example_Component extends BP_Component {
 	 *
 	 * You can also use this function to put data directly into the $bp global.
 	 *
-	 * @package BuddyPress_Skeleton_Component
+	 * @package BuddyPress_Peer_Session_Component
 	 * @since 1.6
 	 *
 	 * @global obj $bp BuddyPress's global object
@@ -233,23 +250,23 @@ class BP_Example_Component extends BP_Component {
 		global $bp;
 
 		// Defining the slug in this way makes it possible for site admins to override it
-		if ( !defined( 'BP_EXAMPLE_SLUG' ) )
-			define( 'BP_EXAMPLE_SLUG', $this->id );
+		if ( !defined( 'BP_PEER_SESSION_SLUG' ) )
+			define( 'BP_PEER_SESSION_SLUG', $this->id );
 
-		// Global tables for the example component. Build your table names using
+		// Global tables for the peer session component. Build your table names using
 		// $bp->table_prefix (instead of hardcoding 'wp_') to ensure that your component
 		// works with $wpdb, multisite, and custom table prefixes.
 		$global_tables = array(
-			'table_name'      => $bp->table_prefix . 'bp_example'
+			'table_name'      => $bp->table_prefix . 'bp_peer_session'
 		);
 
 		// Set up the $globals array to be passed along to parent::setup_globals()
 		$globals = array(
-			'slug'                  => BP_EXAMPLE_SLUG,
-			'root_slug'             => isset( $bp->pages->{$this->id}->slug ) ? $bp->pages->{$this->id}->slug : BP_EXAMPLE_SLUG,
+			'slug'                  => BP_PEER_SESSION_SLUG,
+			'root_slug'             => isset( $bp->pages->peerSession->slug ) ? $bp->pages->peerSession->slug : BP_PEER_SESSION_SLUG,
 			'has_directory'         => true, // Set to false if not required
-			'notification_callback' => 'bp_example_format_notifications',
-			'search_string'         => __( 'Search Examples...', 'buddypress' ),
+			'notification_callback' => 'bp_peer_session_format_notifications',
+			'search_string'         => __( 'Search Peer Sessions...', 'buddypress' ),
 			'global_tables'         => $global_tables
 		);
 
@@ -257,7 +274,7 @@ class BP_Example_Component extends BP_Component {
 		parent::setup_globals( $globals );
 
 		// If your component requires any other data in the $bp global, put it there now.
-		$bp->{$this->id}->misc_data = '123';
+		$bp->peerSession->misc_data = '123';
 	}
 
 	/**
@@ -266,54 +283,56 @@ class BP_Example_Component extends BP_Component {
 	 * The navigation elements created here are responsible for the main site navigation (eg
 	 * Profile > Activity > Mentions), as well as the navigation in the BuddyBar. WP Admin Bar
 	 * navigation is broken out into a separate method; see
-	 * BP_Example_Component::setup_admin_bar().
+	 * BP_Peer_Session_Component::setup_admin_bar().
 	 *
 	 * @global obj $bp
 	 */
 	public function setup_nav( $main_nav = array(), $sub_nav = array() ) {
-		// Add 'Example' to the main navigation
+		// Add 'Peer Session' to the main navigation
 		$main_nav = array(
-			'name' 		      => __( 'Example', 'bp-example' ),
-			'slug' 		      => bp_get_example_slug(),
+			'name' 		      => __( 'Sessions', 'bp-peer-session' ),
+			'slug' 		      => bp_get_peer_session_slug(),
 			'position' 	      => 80,
-			'screen_function'     => 'bp_example_screen_one',
-			'default_subnav_slug' => 'screen-one'
+			//'screen_function'     => 'bp_peer_session_peer_session_details',
+			//'default_subnav_slug' => 'peer-session-details'
 		);
 
-		$example_link = trailingslashit( bp_displayed_user_domain() . bp_get_example_slug() );
+		/*
+		$peer_session_link = trailingslashit( bp_displayed_user_domain() . bp_get_peer_session_slug() );
 
-		// Add a few subnav items under the main Example tab
+		// Add a few subnav items under the main Peer Session tab
 		$sub_nav[] = array(
-			'name'            =>  __( 'Screen One', 'bp-example' ),
-			'slug'            => 'screen-one',
-			'parent_url'      => $example_link,
-			'parent_slug'     => bp_get_example_slug(),
-			'screen_function' => 'bp_example_screen_one',
+			'name'            =>  __( 'Screen One', 'bp-peer-session' ),
+			'slug'            => 'peer-session-details',
+			'parent_url'      => $peer_session_link,
+			'parent_slug'     => bp_get_peer_session_slug(),
+			'screen_function' => 'bp_peer_session_peer_session_details',
 			'position'        => 10
 		);
 
 		// Add the subnav items to the friends nav item
 		$sub_nav[] = array(
-			'name'            =>  __( 'Screen Two', 'bp-example' ),
+			'name'            =>  __( 'Screen Two', 'bp-peer-session' ),
 			'slug'            => 'screen-two',
-			'parent_url'      => $example_link,
-			'parent_slug'     => bp_get_example_slug(),
-			'screen_function' => 'bp_example_screen_two',
+			'parent_url'      => $peer_session_link,
+			'parent_slug'     => bp_get_peer_session_slug(),
+			'screen_function' => 'bp_peer_session_screen_two',
 			'position'        => 20
 		);
+		*/
 
 		parent::setup_nav( $main_nav, $sub_nav );
 
 		// If your component needs additional navigation menus that are not handled by
 		// BP_Component::setup_nav(), you can register them manually here. For example,
 		// if your component needs a subsection under a user's Settings menu, add
-		// it like this. See bp_example_screen_settings_menu() for more info
+		// it like this. See bp_peer_session_screen_settings_menu() for more info
 		bp_core_new_subnav_item( array(
-			'name' 		  => __( 'Example', 'bp-example' ),
-			'slug' 		  => 'example-admin',
+			'name' 		  => __( 'Peer Session', 'bp-peer-session' ),
+			'slug' 		  => 'peer-session-admin',
 			'parent_slug'     => bp_get_settings_slug(),
 			'parent_url' 	  => trailingslashit( bp_loggedin_user_domain() . bp_get_settings_slug() ),
-			'screen_function' => 'bp_example_screen_settings_menu',
+			'screen_function' => 'bp_peer_session_screen_settings_menu',
 			'position' 	  => 40,
 			'user_has_access' => bp_is_my_profile() // Only the logged in user can access this on his/her profile
 		) );
@@ -323,15 +342,16 @@ class BP_Example_Component extends BP_Component {
 	 * Set up your component's actions.
 	 *
 	 * This is the global setup action. It creates all the needed sutup for this component.
-	 * You can add custom global action filters here; see BP_Example_Component::setup_actions().
+	 * You can add custom global action filters here; see BP_Peer_Session_Component::setup_actions().
 	 *
 	 * @global obj $bp
 	 */
 	function setup_actions() {
 		parent::setup_actions();
 
-		// add the high five send button to the members actions bar
-		add_action( 'bp_member_header_actions', 'bp_example_send_high_five_button',  20 );
+		// add the create peer session button to the members actions bar
+		add_action( 'bp_member_header_actions', 'bp_peer_session_create_peer_session_button',  20 );
+		add_action( 'bp_nouveau_notifications_init_filters', 'bp_nouveau_peer_session_notification_filters' );
 	}
 
 	/**
@@ -339,22 +359,22 @@ class BP_Example_Component extends BP_Component {
 	 * custom post types for that data, instead of creating custom database tables.
 	 *
 	 * In the future, BuddyPress will have its own bp_register_post_types hook. For the moment,
-	 * hook to init. See BP_Example_Component::__construct().
+	 * hook to init. See BP_Peer_Session_Component::__construct().
 	 *
-	 * @package BuddyPress_Skeleton_Component
+	 * @package BuddyPress_Peer_Session_Component
 	 * @since 1.6
 	 * @see http://codex.wordpress.org/Function_Reference/register_post_type
 	 */
 	function register_post_types() {
 		// Set up some labels for the post type
 		$labels = array(
-			'name'	   => __( 'High Fives', 'bp-example' ),
-			'singular' => __( 'High Five', 'bp-example' )
+			'name'	   => __( 'Peer Sessions', 'bp-peer-session' ),
+			'singular' => __( 'Peer Session', 'bp-peer-session' )
 		);
 
 		// Set up the argument array for register_post_type()
 		$args = array(
-			'label'	   => __( 'High Fives', 'bp-example' ),
+			'label'	   => __( 'Peer Sessions', 'bp-peer-session' ),
 			'labels'   => $labels,
 			'public'   => false,
 			'show_ui'  => true,
@@ -362,7 +382,7 @@ class BP_Example_Component extends BP_Component {
 		);
 
 		// Register the post type.
-		// Here we are using $this->id ('example') as the name of the post type. You may
+		// Here we are using $this->id ('peer-session') as the name of the post type. You may
 		// choose to use a different name for the post type; if you register more than one,
 		// you will have to declare more names.
 		register_post_type( $this->id, $args );
@@ -380,30 +400,34 @@ class BP_Example_Component extends BP_Component {
  * Loads your component into the $bp global
  *
  * This function loads your component into the $bp global. By hooking to bp_loaded, we ensure that
- * BP_Example_Component is loaded after BuddyPress's core components. This is a good thing because
+ * BP_Peer_Session_Component is loaded after BuddyPress's core components. This is a good thing because
  * it gives us access to those components' functions and data, should our component interact with
  * them.
  *
  * Keep in mind that, when this function is launched, your component has only started its setup
- * routine. Using print_r( $bp->example ) or var_dump( $bp->example ) at the end of this function
+ * routine. Using print_r( $bp->peerSession ) or var_dump( $bp->peerSession ) at the end of this function
  * will therefore only give you a partial picture of your component. If you need to dump the content
  * of your component for troubleshooting, try doing it at bp_init, ie
- *   function bp_example_var_dump() {
+ *   function bp_peer_session_var_dump() {
  *   	  global $bp;
- *	  var_dump( $bp->example );
+ *	  var_dump( $bp->peerSession );
  *   }
- *   add_action( 'bp_init', 'bp_example_var_dump' );
+ *   add_action( 'bp_init', 'bp_peer_session_var_dump' );
  * It goes without saying that you should not do this on a production site!
  *
- * @package BuddyPress_Skeleton_Component
+ * @package BuddyPress_Peer_Session_Component
  * @since 1.6
  */
-function bp_example_load_core_component() {
+function bp_peer_session_load_core_component() {
 	global $bp;
+	$component = new BP_Peer_Session_Component;
 
-	$bp->example = new BP_Example_Component;
+	$bp->peerSession = $component;
+	// need that hack to get notifications working
+	$component_id = $component->id;
+	$bp->$component_id = $component;
 }
-add_action( 'bp_loaded', 'bp_example_load_core_component' );
+add_action( 'bp_loaded', 'bp_peer_session_load_core_component' );
 
 
 ?>
