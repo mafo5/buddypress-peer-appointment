@@ -9,5 +9,5 @@ has changes, so they can update their templates accordingly.
 Of course, templates are not required. You can just build screens in your plugin files with HTML.
 However, this reduces flexbility for end users.
 
-For more information, see the functions bp_example_load_template_filter() for how template locations
-are filtered, and bp_example_screen_one() for how they are loaded for a screen (all in bp-example-core.php)
+For more information, see the functions bp_peer_session_load_template_filter() for how template locations
+are filtered, and bp_peer_session_peer_session_details() for how they are loaded for a screen (all in bp-peer-session-core.php)

@@ -1,0 +1,325 @@
+.app--container {
+	padding: 10px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: white;
+	z-index: 100000;
+}
+#secondary-right {
+	display: none;
+}
+[class^="col-"] {
+	position: inherit !important;
+}
+
+.session-form__row {
+    clear: both;
+}
+
+.fadeable--fade .fadeable__content {
+	position: absolute;
+} 
+.fadeable--fade1 .fadeable__content {
+	top: 0;
+}
+.fadeable--fade2 .fadeable__content {
+	top: calc(-1 * 38px);
+}
+.fadeable--fade3 .fadeable__content {
+	top: calc(-2 * 38px);
+}
+.fadeable--fade4 .fadeable__content {
+	top: calc(-3 * 38px);
+}
+.fadeable--fade5 .fadeable__content {
+	top: calc(-4 * 38px);
+}
+.fadeable--fade6 .fadeable__content {
+	top: calc(-5 * 38px);
+}
+.fadeable--fade7 .fadeable__content {
+	top: calc(-6 * 38px);
+}
+.fadeable--fade8 .fadeable__content {
+	top: calc(-7 * 38px);
+}
+.fadeable--fade9 .fadeable__content {
+	top: calc(-8 * 38px);
+}
+.fadeable--fade10 .fadeable__content {
+	top: calc(-9 * 38px);
+}
+.fadeable--fade11 .fadeable__content {
+	top: calc(-10 * 38px);
+}
+.fadeable--fade12 .fadeable__content {
+	top: calc(-11 * 38px);
+}
+.fadeable--fade13 .fadeable__content {
+	top: calc(-12 * 38px);
+}
+.fadeable--fade14 .fadeable__content {
+	top: calc(-13 * 38px);
+}
+.fadeable--fade15 .fadeable__content {
+	top: calc(-14 * 38px);
+}
+.fadeable--fade16 .fadeable__content {
+	top: calc(-15 * 38px);
+}
+.fadeable--fade17 .fadeable__content {
+	top: calc(-16 * 38px);
+}
+.fadeable--fade18 .fadeable__content {
+	top: calc(-17 * 38px);
+}
+.fadeable--fade19 .fadeable__content {
+	top: calc(-18 * 38px);
+}
+.fadeable--fade20 .fadeable__content {
+	top: calc(-19 * 38px);
+}
+.fadeable--fade21 .fadeable__content {
+	top: calc(-20 * 38px);
+}
+.fadeable--fade22 .fadeable__content {
+	top: calc(-21 * 38px);
+}
+.fadeable--fade23 .fadeable__content {
+	top: calc(-22 * 38px);
+}
+.fadeable--fade24 .fadeable__content {
+	top: calc(-23 * 38px);
+}
+.fadeable--fade25 .fadeable__content {
+	top: calc(-24 * 38px);
+}
+.fadeable--fade26 .fadeable__content {
+	top: calc(-25 * 38px);
+}
+.fadeable--fade27 .fadeable__content {
+	top: calc(-26 * 38px);
+}
+.fadeable--fade28 .fadeable__content {
+	top: calc(-27 * 38px);
+}
+.fadeable--fade29 .fadeable__content {
+	top: calc(-28 * 38px);
+}
+.fadeable--fade30 .fadeable__content {
+	top: calc(-29 * 38px);
+}
+.fadeable--fade31 .fadeable__content {
+	top: calc(-30 * 38px);
+}
+.fadeable--fade32 .fadeable__content {
+	top: calc(-31 * 38px);
+}
+.fadeable--fade33 .fadeable__content {
+	top: calc(-32 * 38px);
+}
+.fadeable--fade34 .fadeable__content {
+	top: calc(-33 * 38px);
+}
+.fadeable--fade35 .fadeable__content {
+	top: calc(-34 * 38px);
+}
+.fadeable--fade36 .fadeable__content {
+	top: calc(-35 * 38px);
+}
+.fadeable--fade37 .fadeable__content {
+	top: calc(-36 * 38px);
+}
+.fadeable--fade38 .fadeable__content {
+	top: calc(-37 * 38px);
+}
+.fadeable--fade39 .fadeable__content {
+	top: calc(-38 * 38px);
+}
+.fadeable--fade40 .fadeable__content {
+	top: calc(-39 * 38px);
+}
+.fadeable--fade41 .fadeable__content {
+	top: calc(-40 * 38px);
+}
+.fadeable--fade42 .fadeable__content {
+	top: calc(-41 * 38px);
+}
+.fadeable--fade43 .fadeable__content {
+	top: calc(-42 * 38px);
+}
+.fadeable--fade44 .fadeable__content {
+	top: calc(-43 * 38px);
+}
+.fadeable--fade45 .fadeable__content {
+	top: calc(-43 * 38px);
+}
+.fadeable--fade46 .fadeable__content {
+	top: calc(-43 * 38px);
+}
+.fadeable--fade47 .fadeable__content {
+	top: calc(-43 * 38px);
+}
+
+.fadeable__container {
+    overflow:hidden;
+    position:relative;
+}
+.fadeable--fade .fadeable__container {
+    height: calc(5 * 38px);
+}
+
+/* .fadeable--fade .fadeable__container:before {
+    content:'';
+    width:100%;
+    height: 32px;    
+    position:absolute;
+    left:0;
+    top:0;
+	background:-moz-linear-gradient(rgb(248, 248, 249), rgba(255,255,255,0));
+	background:-webkit-linear-gradient(rgb(248, 248, 249), rgba(255,255,255,0));
+	background:-o-linear-gradient(rgb(248, 248, 249), rgba(255,255,255,0));
+	background:-ms-linear-gradient(rgb(248, 248, 249), rgba(255,255,255,0));
+	background:linear-gradient(rgb(248, 248, 249), rgba(255,255,255,0));
+	z-index: 1000;
+}
+.fadeable--fade .fadeable__container:after {
+    content:'';
+    width:100%;
+    height: 32px;    
+    position:absolute;
+    left:0;
+    bottom:0;
+	background:-moz-linear-gradient(rgba(255,255,255,0), rgb(248, 248, 249));
+	background:-webkit-linear-gradient(rgba(255,255,255,0), rgb(248, 248, 249));
+	background:-o-linear-gradient(rgba(255,255,255,0), rgb(248, 248, 249));
+	background:-ms-linear-gradient(rgba(255,255,255,0), rgb(248, 248, 249));
+	background:linear-gradient(rgba(255,255,255,0), rgb(248, 248, 249));
+	z-index: 1000;
+} */
+
+.fadeable__action {
+	display: none;
+}
+
+.fadeable--fade .fadeable__action--show {
+	display: inherit;
+}
+
+.fadeable--unfade .fadeable__action--hide {
+	display: inherit;
+}
+@font-face{font-family:mento-icon;src:url(/wp-content/plugins/simplertc/icomoon.aaaa8f1b.eot) format("eot"),url(/wp-content/plugins/simplertc/icomoon.c8229696.ttf) format("ttf"),url(/wp-content/plugins/simplertc/icomoon.1674bf85.woff) format("woff")}
+
+.skill_list {
+	list-style: none;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	padding: 0;
+	margin: 0;
+}
+.skill_list li {
+	padding: 0 5px;
+    margin-right: 10px;
+}
+.skill_list li input {
+	margin-left: 5px;
+}
+
+.session__form {
+	font-size: 20px;
+    padding: 25px;
+    max-width: 710px;
+}
+
+.session__form formset {
+	display: block;
+	clear: both;
+}
+
+.session__form ul {
+	padding: 0;
+}
+
+.session__form h1 {
+	font-weight: bolder;
+	font-size: 32px;
+	margin: 25px 0;
+	text-transform: none;
+}
+
+.session__form h2 {
+	font-weight: bold;
+	font-size: 20px;
+	margin: 25px 0;
+	text-transform: none;
+}
+
+.session__form .session__button, .session__button {
+	color: white;
+	background: #FF9505;
+	border-radius: 4px;
+	padding: 12px 16px;
+	font-size: 20px;
+	border: none;
+	font-weight: normal;
+	text-transform: none;
+}
+
+.session__form .session__button.session__button--text, .session__button.session__button--text {
+	color: #FF9505;
+	background: transparent;
+	text-decoration: underline;
+}
+
+.session__button--abort, .session__button--rerequest {
+	float: right;
+	padding: 10px 0;
+}
+
+.session__bar {
+	padding-top: 25px;
+}
+
+.date-suggestion__head {
+	text-align: center;
+	width: 92px;
+	background-color: #f9f9f9;
+	z-index: 999;
+	padding-left: 12px;
+	margin-bottom: 10px;
+}
+.date-suggestion {
+	width: 92px;
+	float: left;
+}
+.date-suggestion input {
+	display: none;
+}
+.date-suggestion label {
+	display: block;
+	text-align: center;
+	cursor: pointer;
+	padding: 5px;
+}
+.date-suggestion__label{
+	display: inline-block;
+	background-color: #e3e3e3;
+	margin-left: 12px;
+	border-radius: 4px;
+}
+
+.date-suggestion input:disabled + label {
+	cursor: inherit;
+	color: #cdcdcd;
+	background-color: #f3f3f3;
+}
+.date-suggestion input:checked + label {
+	background-color: #FF9505;
+	color: #fff;
+	border-radius: 4px;
+}

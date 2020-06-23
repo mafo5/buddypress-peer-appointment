@@ -1,7 +1,7 @@
 <?php
 
 /**
- * bp_example_record_activity()
+ * bp_peer_session_record_activity()
  *
  * If the activity stream component is installed, this function will record activity items for your
  * component.
@@ -25,12 +25,12 @@
  *		 'secondary_item_id' => (optional) If the activity is more complex you may need a second ID. For example a group forum post may need the group_id AND the forum_post_id.
  *     )
  *
- * Example usage would be:
+ * Peer Session usage would be:
  *
- *   bp_example_record_activity( array( 'type' => 'new_highfive', 'action' => 'Andy high-fived John', 'user_id' => $bp->loggedin_user->id, 'item_id' => $bp->displayed_user->id ) );
+ *   bp_peer_session_record_activity( array( 'type' => 'new_peer_session', 'action' => 'Andy high-fived John', 'user_id' => $bp->loggedin_user->id, 'item_id' => $bp->displayed_user->id ) );
  *
  */
-function bp_example_record_activity( $args = '' ) {
+function bp_peer_session_record_activity( $args = '' ) {
 	global $bp;
 
 	if ( !function_exists( 'bp_activity_add' ) )
@@ -42,7 +42,7 @@ function bp_example_record_activity( $args = '' ) {
 		'action' => '',
 		'content' => '',
 		'primary_link' => '',
-		'component' => $bp->example->id,
+		'component' => $bp->peerSession->id,
 		'type' => false,
 		'item_id' => false,
 		'secondary_item_id' => false,

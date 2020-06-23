@@ -12,15 +12,15 @@
  * of each.
  */
 
-function bp_example_register_widgets() {
-	add_action('widgets_init', create_function('', 'return register_widget("BP_Example_Widget");') );
+function bp_peer_session_register_widgets() {
+	add_action('widgets_init', create_function('', 'return register_widget("BP_Peer_Session_Widget");') );
 }
-add_action( 'plugins_loaded', 'bp_example_register_widgets' );
+add_action( 'plugins_loaded', 'bp_peer_session_register_widgets' );
 
-class BP_Example_Widget extends WP_Widget {
+class BP_Peer_Session_Widget extends WP_Widget {
 
-	function bp_example_widget() {
-		parent::WP_Widget( false, $name = __( 'Example Widget', 'buddypress' ) );
+	function bp_peer_session_widget() {
+		parent::WP_Widget( false, $name = __( 'Peer Session Widget', 'buddypress' ) );
 	}
 
 	function widget( $args, $instance ) {
@@ -62,8 +62,8 @@ class BP_Example_Widget extends WP_Widget {
 		$max_items = strip_tags( $instance['max_items'] );
 		?>
 
-		<p><label for="bp-example-widget-per-page"><?php _e( 'Number of Items Per Page:', 'bp-example' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'per_page' ); ?>" name="<?php echo $this->get_field_name( 'per_page' ); ?>" type="text" value="<?php echo attribute_escape( $per_page ); ?>" style="width: 30%" /></label></p>
-		<p><label for="bp-example-widget-max"><?php _e( 'Max items to show:', 'bp-example' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'max_items' ); ?>" name="<?php echo $this->get_field_name( 'max_items' ); ?>" type="text" value="<?php echo attribute_escape( $max_items ); ?>" style="width: 30%" /></label></p>
+		<p><label for="bp-peer-session-widget-per-page"><?php _e( 'Number of Items Per Page:', 'bp-peer-session' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'per_page' ); ?>" name="<?php echo $this->get_field_name( 'per_page' ); ?>" type="text" value="<?php echo attribute_escape( $per_page ); ?>" style="width: 30%" /></label></p>
+		<p><label for="bp-peer-session-widget-max"><?php _e( 'Max items to show:', 'bp-peer-session' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'max_items' ); ?>" name="<?php echo $this->get_field_name( 'max_items' ); ?>" type="text" value="<?php echo attribute_escape( $max_items ); ?>" style="width: 30%" /></label></p>
 	<?php
 	}
 }
